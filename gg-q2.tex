@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+
+\include{qun-sheet-texhead}
+\include{diagrams}
+
+\title{Sheet 2: Euclidean isometries}
+\author{J. Evans}
+\date{}
+
+\begin{document}
+\maketitle
+
+\bigskip
+
+{\bf The final mark out of 10 (which counts towards your grade) will be calculated as your mark on Q1 plus your mark on Q2 plus your best mark from Q3--5.} I will also award stars: silver for a total mark of 12 or more on any four questions, gold for a total mark of 15 or more on all questions.
+
+\vspace{1cm}
+
+\begin{question}\ (2 marks)\\
+Let $Sx=Ax+b$ and let $Tx=x+c$. Find $S^{-1}$ in the form $A'x+b'$. Prove that $S\circ T\circ S^{-1}$ is a translation.
+\end{question}
+
+\iffalse
+\begin{answer}
+  We have $S^{-1}(S(x))=A'(Ax+b)+b'=A'Ax+A'b+b'=x$ so $A'=A^{-1}$ and $A'b=-b'$, i.e. $b'=-A^{-1}b$. Now
+  \begin{align*}
+    S(T(S^{-1}(x)))&=S(T(A^{-1}x-A^{-1}b))\\
+    &=S(A^{-1}x-A^{-1}b+c)\\
+    &=A(A^{-1}x-A^{-1}b+c)+b\\
+    &=x+Ac
+  \end{align*}
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (5 marks)\\
+  \begin{enumerate}
+  \item[(a)] Show that the map $\OP{Isom}(\RR^n)\to O(n)$ given by $T\mapsto A$ (where $Tx=Ax+b$) is a homomorphism. What is its kernel?
+  \item[(b)] Is it true that $\OP{Isom}(\RR^n)$ is isomorphic to $O(n)\times\RR^n$ where $O(n)$ is the subgroup of orthogonal transformations and $\RR^n$ is the subgroup of translations? [Hint: Consider a commutator.]
+  \item[(c)] Consider the map $\sigma\colon O(n)\to O(n)$, $\sigma(A)=A\det(A)$. Show that $\sigma$ is a homomorphism. When $n$ is odd, show that the image is $SO(n)$. Using this, prove that if $n$ is odd, $O(n)\cong SO(n)\times\{\pm \mathbf{1}\}$, where $\mathbf{1}$ denotes the identity matrix.
+  \item[(d)] Deduce that if $P$ is a 3-dimensional convex polytope invariant under the map $\tau\colon\RR^3\to\RR^3$, $\tau(x)=-x$ then $\OP{Sym}(P)=\OP{Sym}^+(P)\times\{\pm 1\}$.
+  \item[(e)] Give an example of a $P$ which is $\tau$-invariant, and an example of a $P$ which shows that $\tau$-invariant is a necessary hypothesis in part (d).
+  \end{enumerate}
+\end{question}
+\iffalse
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] If $Sx=Ax+b$ and $Tx=Cx+d$ then $STx=A(Cx+d)+b=ACx+Ad+b$ so $ST\mapsto AC$, as required. The kernel is the group of translations.
+  \item[(b)] We saw in Question 1 that if $Sx=Ax+b$ and $Tx=x+c$ then $STS^{-1}x=x+Ac$. Therefore $T^{-1}STS^{-1}x=x+Ac-c$ which is not the identity unless $c$ is fixed by $A$. Therefore there are elements of $O(n)$ and of the translation subgroup which do not commute (as they would if the group were a direct product).
+  \item[(c)] We have $AB\det(AB)=AB\det(A)\det(B)=A\det(A) B\det(B)$ as required. $A\det A$ has determinant $\det(A)^{n+1}$ so this is always equal to 1 when $n$ is odd (since $\det(A)=\pm 1$) and the image of $\sigma$ is contained in $SO(n)$; moreover, $\sigma(A)=A$ when $A\in SO(n)$, so the image equals $SO(n)$. Therefore the map $A\mapsto (A\det A,\det A)$ is a homomorphism $O(n)\to SO(n)\times\{\pm 1\}$. It is clearly bijective because $A=A\det A/\det A$.
+  \item[(d)] If $P$ is invariant under $\tau$ then $-\mathbf{1}\in O(n)$ is in $\OP{Sym}(P)$ and hence $A\det A\in\OP{Sym}^+(P)$ for any $A\in\OP{Sym}(P)$. So, as in (c), $A\mapsto (A\det A,\det A)$ gives the desired isomorphism.
+  \item[(e)] The cube is $\tau$-invariant. The tetrahedron is not, and $\OP{Sym}^+(T)=A_4$, $\OP{Sym}(T)=S_4$ and $S_4$ is not a direct product of $A_4$ with $\{\pm 1\}$.
+  \end{enumerate}
+\end{answer}
+\fi
+
+\newpage
+
+\begin{question}\ (3 marks)\\
+  Suppose that $G$ is a finite group acting on a set $X$. For each $g\in G$, let $X^g=\{x\in X\ :\ gx=x\}$ denote the set of fixed points of $g$. By considering the set $\{(g,x)\in G\times X\ :\ gx=x\}$, show that $\sum_{g\in G}|X^g|=\sum_{x\in X}|\OP{Stab}(x)|$. Deduce that there are $\frac{1}{|G|}\sum_{g\in G}|X^g|$ different orbits in total.
+
+  There are $3^4=81$ different ways of colouring in the faces of a regular tetrahedron using the colours red, white and blue. The symmetry group $A_4$ of the tetrahedron acts on these colourings and we say that two colourings are congruent if they are related by a rotation. The number of orbits is the number of congruence classes of colouring. Using the first part of the question, and appealing to the geometric description of the elements of $A_4$ on Sheet 1, prove that there are 15 congruence classes of colouring.
+\end{question}
+
+\iffalse
+\begin{answer}
+  The set can be partitioned in two ways: $\bigcup_{g\in G}\{x\ :\ gx=x\}$ or $\bigcup_{x\in X}\{g\in G\ :\ gx=x\}$. Therefore it has size $\sum_{g\in G}|X^g|$ and $\sum_{x\in X}|\OP{Stab}(x)|$, proving the formula. Using the orbit-stabiliser theorem, we have that $\sum_{x\in X}|\OP{Stab}(x)|=\sum_{x\in X}|G|/|\OP{Orb}(x)|=|G|\sum_{x\in X}(1/|\OP{Orb}(x)|)=|G|\sum_{\mbox{orbits}}|\OP{Orb}(x)|/|\OP{Orb}(x)|=|G|\cdot N$ where $N$ is the number of orbits.
+
+  To apply the formula we need to know the number of $g$-invariant colourings for each $g\in G$. For the (eight) rotations of order 3 it is easy to see that there are $3^2$ possible colourings (let $A$ be the axis of rotation; the face pierced by $A$ can be coloured in any way and the other three faces share a common colour). For the (three) rotations of order 2 it is easy to see that there are $3^2$ colourings. For the identity element, any colouring is invariant, so there are $3^4$. Therefore the formula gives
+  \[\mbox{number of orbits }=\frac{1}{12}(3^4+3\times 3^2+8\times 3^2)=\frac{9}{12}(9+3+8)=15.\]
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)
+  \begin{enumerate}
+  \item[(a)] Let $R$ be a rotation of the plane around 0 by an angle $\theta$. Express $R$ as a product of two reflections.
+  \item[(b)] Let $ABC$ be a triangle with internal angles $\alpha,\beta,\gamma$ at $A,B,C$ respectively and let $e_A,e_B,e_C$ denote the edges opposite to $A,B,C$ respectively. Let $R(p,\theta)$ denote the rotation around a point $p$ by an angle $\theta$ anticlockwise. Using part (a) or otherwise, show that $R(C,2\gamma)R(B,2\beta)R(A,2\alpha)=1$.
+  \end{enumerate}
+\end{question}
+
+\iffalse
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] Let $\ell_1$ and $\ell_2$ be two lines which meet at the origin at an angle $\theta/2$ (so that $\ell_2$ is at an angle $\theta/2$ anticlockwise of $\ell_1$). Let $r_i$, $i=1,2$, denote the reflection in $\ell_i$. Then $r_2\circ r_1$ is a rotation by $\theta$. To see this, note that: if $x\in \ell_1$ then $r_2(r_1(x))=r_2(x)$ and $r_2(\ell_1)$ makes an angle $\theta$ with $\ell_1$; if $x\in\ell_2$ then $r_1(x)$ makes an angle $\theta/2$ with $\ell_1$ and so $r_2(r_1(\ell_2))$ makes an angle $\theta$ with $\ell_2$. Since an isometry fixing 0 is determined by its action on a basis, and we have just checked that this isometry acts like a rotation on two linearly independent vectors, we deduce that this {\em is} a rotation.
+  \item[(b)] By part (a) we have $R(A,2\alpha)=r_Br_C$, $R(B,2\beta)=r_Ar_B$ and $R(C,2\gamma)=r_Cr_A$ where $r_i$ is the reflection in $e_i$. Therefore the product is $r_Cr_Ar_Ar_Br_Br_C=1$.
+  \end{enumerate}
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+  Let $H\subset\RR^n$ be a hyperplane. Show that if $T$ is an isometry of $\RR^n$ such that $Tx=x$ for all $x\in H$ then $T$ is either the identity or the reflection in $H$.
+\end{question}
+
+\iffalse
+\begin{answer}
+Pick a point $0\in H$ and an orthonormal basis $e_1,ldots,e_n$ such that $e_1,\ldots,e_{n-1}$ lie on $H$. Then the isometry is determined by $Te_n$. But $\{e_1,\ldots,e_{n-1},Te_n\}$ is an orthonormal basis, so $Te_n$ is a unit vector on the line orthogonal to $H$. There are only two possibilities: $Te_n=e_n$ and $Te_n=-e_n$. These give the identity and the reflection respectively. 
+\end{answer}
+\newpage
+\fi
+
+
+\end{document}

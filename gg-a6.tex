@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+
+\include{qun-sheet-texhead}
+\include{diagrams}
+
+\title{Sheet 6: More M\"obius maps}
+\author{J. Evans}
+\date{}
+
+\begin{document}
+\maketitle
+
+\bigskip
+
+{\bf The final mark out of 10 (which counts towards your grade) will be calculated as your mark on Q1 plus your mark on Q2 plus your best mark from Q3--5.} I will also award stars: silver for a total mark of 12 or more on any four questions, gold for a total mark of 15 or more on all questions.
+
+\vspace{1cm}
+
+\begin{question}\ (2 marks)\\
+  Suppose that $z_1,z_2,z_3,z_4$ are distinct points in $\CC\cup\{\infty\}$. For which $w\in\CC\cup\{\infty\}$ is it impossible that $[z_1,z_2;z_3,z_4]=w$?
+\end{question}
+
+\begin{answer}
+  Without loss of generality, we can take $z_1=0$, $z_2=\infty$, $z_4=1$ which gives $w=[0,\infty;z,1]=z$ and $z$ can be anything except $0,1,\infty$.
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (5 marks)\\
+  Let $S\colon S^2\to\CC\cup\{\infty\}$ denote the stereographic projection and let $x=(x_1,x_2,x_3)$ be a point on $S^2$.
+  \begin{enumerate}
+  \item[(a)] Show that $|S(x)|\leq 1$ if and only if $x_3\leq 0$ (so that the southern hemisphere projects stereographically to the unit disc).
+  \item[(b)] What is the stereographic projection of the spherical triangle with vertices $(1,0,0)$, $(0,1,0)$, $(0,0,1)$?
+  \item[(c)] Suppose that $z=S(x_1,x_2,x_3)$ and let $\theta$ be the angle between $(0,0,1)$ and $(x_1,x_2,x_3)$. Show that $|z|=\tan(\theta/2)$. [This is the geometric origin of the famous ``$tan(x/2)$ substitution''.]
+  \item[(d)] Prove that four points in $\CC\cup\{\infty\}$ lie on a circle if and only if their cross-ratio is real.
+  \item[(e)] Deduce that if $A,B,C,D$ are points on a circle (cyclically ordered) then the internal angles in the quadrilateral $ABCD$ at $B$ and at $D$ add up to $\pi$ and that the angle between $AB$ and $AC$ equals the angle between $DB$ and $DC$.
+    
+    [Hint: Consider the arguments of the cross-ratios $[D,B;A,C]$ and $[A,B;C,D]$.]
+  \end{enumerate}
+\end{question}
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] We have $|S(x)|^2=\left|\frac{x_1+ix_2}{1-x_3}\right|^2=\frac{x_1^2+x_2^2}{(1-x_3)^2}$ and since $x_1^2+x_2^2=1-x_3^2$ we get
+    \[|S(x)|=\frac{1-x_3^2}{(1-x_3)^2}=\frac{1+x_3}{1-x_3}\]
+    which is $\leq 1$ if and only if $1+x_3\leq 1-x_3$ i.e. $x_3\leq 1$.
+  \item[(b)] The vertices map to $1$, $i$ and $\infty$. Since spherical circles project to circles and straight lines, the edges map to: the segment of the unit circle connecting $1$ and $i$, the half-lines $\{i+it\ :\ t\geq 0\}$ and $\{1+t\ :\ t\geq 0\}$. So the whole triangle projects to
+    \[\{x+iy\ :\ x^2+y^2\geq 1,\ x\geq 0,\ y\geq 0\}.\]
+  \item[(c)] We have $x_3=\cos\theta$ and $x_3=\frac{1-|z|^2}{1+|z|^2}$ so $|z|=\sqrt{\frac{1-\cos\theta}{1+\cos\theta}}$ but
+    \begin{align*}
+      1-\cos\theta&=1-\cos^2(\theta/2)+\sin^2(\theta/2)\\
+      &=2\sin^2(\theta/2)\\
+      1+\cos\theta&=1+\cos^2(\theta/2)-\sin^2(\theta/2)\\
+      &=2\cos^2(\theta/2)\\
+      \therefore\frac{1-\cos\theta}{1+\cos\theta}&=\frac{\sin^2(\theta/2)}{\cos^2(\theta/2)}\\
+      \therefore\sqrt{\frac{1-\cos\theta}{1+\cos\theta}}&=\tan(\theta/2).
+    \end{align*}
+  \item[(d)] Let $T$ be the M\"obius transformation taking $z_1,z_2,z_3$ to $0,1,\infty$ and let $z=Tz_4$. Then the cross-ratio of the four points is $z$. If $z_1,z_2,z_3,z_4$ lie on a circle $C$ then $0,1,\infty,z$ lie on a circle/straight line $TC$, but $0,1,\infty$ lie on a unique circle/straight line, namely $\RR\cup\{\infty\}$, hence $z\in\RR$. Conversely, if $z\in\RR$ then $0,1,\infty,z$ lie on a common straight line and hence $z_1,z_2,z_3,z_4$ lie on a common circle ($T^{-1}(\RR\cup\{\infty\})$).
+  \item[(e)] The internal angle between $DA$ and $DC$ is the argument of $(D-C)/(D-A)$. The internal angle between $BC$ and $BA$ is the argument of $(B-A)/(B-C)$. The quotient $(D-A)(B-C)/(D-C)(B-A)$ is the cross-ratio $[D,B;A,C]$ which is real because $A,B,C,D$ lie on a line, hence the difference between the arguments of $(D-A)/(D-C)$ and $(B-A)/(B-C)$ is an integer multiple $n\pi$ (the argument of a real number is an integer multiple of $\pi$). Moreover, because $ABCD$ are cyclically ordered, if $D,B,C$ map to $0,\infty,1$ then $A$ goes to a negative number, which means that $n$ is odd. Similarly, by considering the cross-ratio $[A,B;C,D]$ we get the other identity.
+  \end{enumerate}
+\end{answer}
+
+\newpage
+
+\begin{question}\ (3 marks)\\
+  Let $u,v\in\CC$ and consider the points $\pi(u),\pi(v)\in S^2\subset\RR^3$ where $\pi\colon\CC\to S^2$ is the inverse of stereographic projection. Prove that the Euclidean distance $|\pi(u)-\pi(v)|$ in $\RR^3$ is
+  \[|\pi(u)-\pi(v)|=\frac{2|u-v|}{\sqrt{(1+|u|^2)(1+|v|^2)}}.\]
+  [{\em Courage} - this will probably get worse before it gets better.]
+\end{question}
+
+\begin{answer}
+  We have $\pi(u)=\left(\frac{2u}{1+|u|^2},\frac{1-|u|^2}{1+|u|^2}\right)$ so
+  \begin{align*}
+    |\pi(u)-\pi(v)|&=\left|\frac{2u}{1+|u|^2}-\frac{2v}{1+|v|^2}\right|^2+\left(\frac{1-|u|^2}{1+|u|^2}-\frac{1-|v|^2}{1+|v|^2}\right)^2\\
+    &=\frac{1}{(1+|u|^2)^2(1+|v|^2)^2}\left(4\left|u(1+|v|^2)-v(1+|u|^2)\right|^2+\right.\\
+    &\left.\ \ \ \ \ \ +\left((1-|u|^2)(1+|v|^2)-(1+|u|^2)(1-|v|^2)\right)^2\right)\\
+    &=\frac{4}{(1+|u|^2)^2(1+|v|^2)^2}\left(|u|^2(1+|v|^2)^2+|v|^2(1+|u|^2)-\right.\\
+    &\left.\ \ \ \ \ \ -(\bar{u}v+u\bar{v})(1+|u|^2)(1+|v|^2)+\left(|v|^2-|u|^2\right)^2\right)\\
+    &=\frac{4}{(1+|u|^2)^2(1+|v|^2)^2}\left((|u|^2+|v|^2)(1+|u|^2)(1+|v|^2)-\right.\\
+    &\left.\ \ \ \ \ \ -(\bar{u}v+u\bar{v})(1+|u|^2)(1+|v|^2)\right)\\
+    &=\frac{4|u-v|^2}{(1+|u|^2)(1+|v|^2)}
+  \end{align*}
+  and taking square roots gives the answer.
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)
+Consider a M\"obius map of the form $Tz=\frac{az+b}{-\bar{b}z+\bar{a}}$ with $|a|^2+|b|^2=1$. Show that if $u,v\in\CC$ and $\pi\colon\CC\cup\{\infty\}\to S^2$ is the inverse of stereographic projection then $|\pi(Tu)-\pi(Tv)|=|\pi(u)-\pi(v)|$. (You may assume the expression for $|\pi(u)-\pi(v)|$ from the previous question).
+\end{question}
+
+\begin{answer}
+  We have
+  \[|\pi(u)-\pi(v)|=\frac{2|u-v|}{\sqrt{(1+|u|^2)(1+|v|^2)}}.\]
+  so
+  \begin{align*}
+    |\pi(Tu)-\pi(Tv)|&=\frac{2|Tu-Tv|}{\sqrt{(1+|Tu|^2)(1+|Tv|^2)}}\\
+    &=\frac{2\left|\frac{au+b}{-\bar{b}u+\bar{a}}-\frac{av+b}{-\bar{b}v+\bar{a}}\right|}{\sqrt{\left(1+\left|\frac{au+b}{-\bar{b}u+\bar{a}}\right|^2\right)\left(1+\left|\frac{av+b}{-\bar{b}v+\bar{a}}\right|^2\right)}}\\
+    &=\frac{2|(au+b)(-\bar{b}v+\bar{a})-(av+b)(-\bar{b}u+\bar{a})|}{\sqrt{(|-\bar{b}u+\bar{a}|^2+|au+b|^2)(|-\bar{b}v+\bar{a}|^2+|av+b|^2)}}\\
+    &=\frac{2||a|^2u-|b|^2v-a\bar{b}uv+\bar{a}b-|a|^2v+|b|^2u-b\bar{a}+a\bar{b}uv|}{\sqrt{(|\bar{b}u|^2+|\bar{a}|^2+|au|^2+|b|^2)(|\bar{b}v|^2+|\bar{a}|^2+|av|^2+|b|^2)}}\\
+    &=\frac{2|u-v|}{\sqrt{(1+|u|^2)(1+|v|^2)}}
+  \end{align*}
+  where we have used $|a|^2+|b|^2=1$ in the final step.
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+  By considering the M\"obius transformation $z\mapsto 1-z$ (and its action on $0,1,\infty$), show that, if $A,B,C,D$ are four points in $\CC$, then $[D,B;A,C]=1-[C,B;A,D]$. Deduce that if $A,B,C,D$ lie ordered cyclically on a circle then
+  \[|A-B||C-D|+|D-A||B-C|=|D-B||A-C|.\]
+  Deduce that, in a regular pentagon $ABCDE$, the ratio of the length of a diagonal to the length of a side is $\frac{1+\sqrt{5}}{2}$ (i.e. the golden ratio).
+
+  [Hint: You may use the results in Q.2(e) to prove, for example, that $\frac{(D-A)(B-C)}{(D-C)(B-A)}=-\frac{|D-A||B-C|}{|D-C||B-A|}$ or $\frac{(D-B)(A-C)}{(D-C)(A-B)}=\frac{|D-B||A-C|}{|D-C||A-B|}$.]
+\end{question}
+
+\begin{answer}
+  Let $f$ be the M\"obius transformation sending $D,B,C,A$ to $0,\infty,1,z$ (where $z=[D,B;A,C]$) and let $g(z)=1-z$. Then $g\circ f$ sends $D,B,C,A$ to $1,\infty,0,1-z$, hence $[C,B;A,C]=1-z$, proving the first part. Now we see that
+  \[\frac{(D-A)(B-C)}{(D-C)(B-A)}=1-\frac{(D-B)(A-C)}{(D-C)(A-B)}\]
+  Q.2(e) gives us that we may replace all differences with their magnitudes (at the cost of introducing a sign for the term on the left-hand side), from which we deduce the required equality.
+
+  Take $A,B,C,D,E$ to be the vertices of a regular pentagon. Then $x=|D-A|=|D-B|=|A-C|=|A-D|$ is the length of a diagonal and $y=|B-A|=|C-B|=|D-C|$ is the length of a side. The equation now gives $y^2+xy=x^2$ so $x/y$ satisfies $\tau^2-\tau-1=0$, which is solved by $(1\pm\sqrt{5})/2$. Only one of these solutions is positive, namely $\frac{1+\sqrt{5}}{2}$.
+\end{answer}
+\newpage
+
+
+\end{document}

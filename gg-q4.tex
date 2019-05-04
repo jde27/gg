@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+
+\include{qun-sheet-texhead}
+\include{diagrams}
+
+\title{Sheet 4: Spherical geometry}
+\author{J. Evans}
+\date{}
+
+\begin{document}
+\maketitle
+
+\bigskip
+
+{\bf The final mark out of 10 (which counts towards your grade) will be calculated as your mark on Q1 plus your mark on Q2 plus your best mark from Q3--5.} I will also award stars: silver for a total mark of 12 or more on any four questions, gold for a total mark of 15 or more on all questions.
+
+\vspace{1cm}
+
+\begin{question}\ (2 marks)\\
+Let $p$ and $q$ be two points on the unit circle so that the angle between them is $\theta$. Find the Euclidean length of the straight line $pq$ in $\RR^2$.
+\end{question}
+
+\iffalse
+\begin{answer}
+  Drop a perpendicular bisector to turn the triangle $0pq$ into two right-angled triangles each with base $\sin(\theta/2)$. The chord then has length $2\sin(\theta/2)$.
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (5 marks)\\
+  The moral of this question is that very small spherical triangles look a lot like Euclidean triangles. This is why, although we live on the surface of a sphere (the Earth), ordinary Euclidean geometry appears to apply to the triangles we draw on small scales.
+  \begin{enumerate}
+  \item[(a)] Suppose that $\Delta$ is a spherical triangle with side lengths $a,b,c$ and that the angle $\gamma$ opposite the side of length $c$ is a right-angle. Suppose that $a,b,c$ are very small. By taking the Taylor expansion of $\cos$ in the spherical Pythagorean theorem, prove that
+    \[a^2+b^2\approx c^2.\]
+  \item[(b)] Fix a point $x\in S^2$ and consider the {\em spherical circle} of points $\{y\in S^2\ :\ d(x,y)=r\}$. Prove that this is a Euclidean circle of radius $\sin r$ in $\RR^3$ and deduce that a spherical circle of spherical radius $r$ has circumference $2\pi\sin r$. 
+  \item[(c)] Show that the answer to part (b) approximates the usual formula for the circumference of a Euclidean circle when $r$ is very small.
+  \item[(d)] By integrating the formula for the circumference, find the area bounded by a spherical circle of radius $r$.
+  \item[(e)] Show that the formula for the area bounded by a spherical circle approximates the usual formula for the area bounded by a Euclidean circle when the spherical radius $r$ is very small.
+  \end{enumerate}
+\end{question}
+\iffalse
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] We have $\cos c=\cos a \cos b$, and $\cos x\approx 1-x^2/2$. Therefore
+    \[1-c^2/2\approx (1-a^2/2)(1-b^2/2)\approx 1-(a^2+b^2)/2\]
+    so $c^2\approx a^2+b^2$.
+  \item[(b)] WLOG assume that $x=(1,0,0)$. The points which are a spherical distance $r$ from $x$ are then those points $(a,b,c)$ for which $\cos r=c$, in other words the points $(a,b,\cos r)$ such that $a^2+b^2=1-\cos^2r=\sin^2r$. This is a Euclidean circle of radius $\sin r$.
+  \item[(c)] For small $r$, the Taylor expansion of $\sin$ implies that $2\pi\sin r\approx 2\pi r$.
+  \item[(d)] Integrating $2\pi\sin s ds$ from $s=0$ to $s=r$ gives $2\pi(1-\cos r)$, which is the area bounded by the spherical circle.
+  \item[(e)] For small $r$, this becomes $\approx 2\pi r^2/2=\pi r^2$, using the Taylor expansion of $\cos r$.
+  \end{enumerate}
+\end{answer}
+\fi
+
+\newpage
+
+\begin{question}\ (3 marks)\\
+  Suppose that the sphere is subdivided into a collection of convex spherical polygons $P_1,\ldots,P_F$. Let
+  \begin{itemize}
+  \item $V$ denote the number of vertices in the subdivision,
+  \item $E$ denote the number of edges in the subdivision,
+  \item $F$ denote the number of polygons in the subdivision,
+  \item $n_i$ denote the number of edges of $P_i$,
+  \item $\alpha_i$ denote the sum of the internal angles of $P_i$.
+  \end{itemize}
+  Prove that
+  \begin{enumerate}
+  \item[(a)] $2\pi V=\sum_{i=1}^F\alpha_i$.
+  \item[(b)] $2E=\sum_{i=1}^Fn_i$.
+  \item[(c)] $V-E+F=2$. [Hint: Use the Gauss-Bonnet theorem for spherical polygons.]
+  \end{enumerate}
+\end{question}
+
+\iffalse
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] The sum $\sum_{i=1}^F\alpha_i$ can be expanded as $\sum_{i=1}^F\sum_{v\mbox{ vertex of} P_i}\alpha_i(v)$ where $\alpha_i(v)$ denotes the internal angle of $P_i$ at $v$. This can be rearranged as
+    \[\sum_{v\mbox{ vertex of subdivision}}\sum_{\mbox{corners of }P_i{\mbox{ meeting at }v}}\alpha_i(v)\]
+    which can be computed as $2\pi V$ because we know that at each vertex the total angle of all polygons meeting at that vertex must be $2\pi$.
+  \item[(b)] Every edge in the subdivision occurs as an edge of two polygons, hence summing the total number of edges over all polygons will give twice the number of edges in the subdivision.
+  \item[(c)] We have $4\pi=\OP{area}(S^2)=\sum_{i=1}^F(\alpha_i-(n_i-2)\pi)=2\pi V-2\pi E+2\pi F$, so dividing by $2\pi$ gives the answer.
+  \end{enumerate}
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)
+  Prove the following statements:
+  \begin{enumerate}
+  \item[(a)] Any isometry of $S^2$ can be written as a product of at most three reflections in spherical lines.
+  \item[(b)] If a spherical triangle has internal angles $\pi/p$, $\pi/q$, $\pi/r$ with $2\leq p\leq q\leq r$ then $(p,q,r)$ is one of:
+    \begin{itemize}
+    \item $(2,2,k)$ for any $k\geq 2$,
+    \item $(2,3,k)$ for any $2\leq k\leq 5$.
+    \end{itemize}
+    [Hint: A triangle must have positive area.]
+  \item[(c)] For each of the possible $(p,q,r)$ in part (b), there exists a spherical triangle with these internal angles.
+  \end{enumerate}
+\end{question}
+
+\iffalse
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] Any isometry of $S^2$ is a restriction of an orthogonal matrix in $O(3)$, which can be written as a product of three reflections by the result in lectures.
+  \item[(b)] The Gauss-Bonnet theorem tells us that $\OP{area}=\pi\left(\frac{1}{p}+\frac{1}{q}+\frac{1}{r}\right)-\pi$ and area must be positive, so:
+    \[\frac{1}{p}+\frac{1}{q}+\frac{1}{r}>1.\]
+    Clearly $(2,2,k)$ is possible, $(2,3,k)$ is possible as long as $\frac{1}{k}>1/6$, i.e. $k<6$. The next possibility would be $p=2$, $q\geq 4$ which requires $r<4$, but $q\leq r$ so we have a contradiction. The only other possibility would be $p\geq 3$. But then $q,r\geq 3$, so $\frac{1}{p}+\frac{1}{q}+\frac{1}{r}\leq 1$, which is a contradiction.
+  \item[(c)] In each case, we have a right-angle ($p=2$) so let's rotate to put this vertex at the north pole $P$ and make the two edges live in the $x$- and $y$-planes. Pick the point $Q_t$ on the edge in the $x$-plane at a distance $t$ from $P$ and consider the unique spherical line which passes through $Q_t$ meeting the $x$-plane at an angle $\pi/q$. This intersects the $y$-plane at a point $R_t$ which will be the final vertex of our triangle $\Delta_t$. When $t=\pi/2$ the internal angle at $R_t$ is $\pi/2$, independent of $q$. This gives us $(2,q,2)$ (which is $(2,2,k)$ after relabelling). For the other three triangles, allow $t$ to vary. The internal angle $\gamma_t$ at $R_t$ varies continuously between $\pi/2$ and $\pi-\pi/p-\pi/q$ as $t\to 0$ because the area of the triangle varies continuously and the area and the angle are related by $\gamma_t=\OP{area}(\Delta_t)+\pi-\pi/p-\pi/q$. In particular, for some values of $t$ the angle $\gamma_t$ takes on the values $\pi/3$, $\pi/4$, $pi/5$.
+  \end{enumerate}
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+  If $A,B,C$ is a spherical triangle, define the {\em polar triangle} $A',B',C'$ whose vertices are the unit vectors $A'=\frac{B\times C}{\sin a},B'=\frac{C\times A}{\sin b},C'=\frac{A\times B}{\sin c}$. Prove that the side lengths of $A',B',C'$ are $\pi-\alpha,\pi-\beta,\pi-\gamma$ and the angles are $\pi-a,\pi-b,\pi-c$.
+
+  [Hint: In the notation from lectures, $A'=-n_a$, etc.]
+  
+  Deduce that
+  \[\sin\alpha\sin\beta\cos c=\cos\gamma+\cos\alpha\cos\beta.\]
+  Deduce that the side lengths of a spherical triangle are determined by its internal angles.
+\end{question}
+
+\iffalse
+\begin{answer}
+  Recall that if $ABC$ is a spherical triangle then its side lengths $a,b,c$ satisfy
+  \begin{align*}
+    \cos a&=B\cdot C\\
+    \cos b&=C\cdot A\\
+    \cos c&=A\cdot B
+  \end{align*}
+  and its internal angles satisfy
+  \begin{align*}
+    -\cos\alpha&=n_b\cdot n_c\\
+    -\cos\beta&=n_c\cdot n_a\\
+    -\cos\gamma&=n_a\cdot n_b
+  \end{align*}
+  where $n_a=-A'$, $n_b=-B'$, $n_c=-C'$ for the polar triangle $A',B',C'$. Therefore $\cos a'=-\cos\alpha$, $\cos a=-\cos\alpha'$, etc. so $\alpha'=\pi-a$, $a'=\pi-\alpha$, etc. Applying the cosine rule to the polar triangle therefore gives
+  \[\sin(\pi-\alpha)\sin(\pi-\beta)\cos(\pi-c)=\cos(\pi-\gamma)-\cos(\pi-\alpha)\cos(\pi-\beta)\]
+  or, since $\sin(\pi-x)=\sin x$, $\cos(\pi-x)=-\cos x$,
+  \[\sin\alpha\sin\beta\cos c=\cos\gamma+\cos\alpha\cos\beta\mbox{, etc.}\]
+  This tells us that $\alpha,\beta,\gamma$ determine $a,b,c$.
+\end{answer}
+\newpage
+\fi
+
+
+\end{document}

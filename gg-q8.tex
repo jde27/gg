@@ -1,0 +1,119 @@
+\documentclass[12pt]{article}
+
+\include{qun-sheet-texhead}
+\include{diagrams}
+
+\title{Sheet 8: More hyperbolic geometry}
+\author{J. Evans}
+\date{}
+
+\begin{document}
+\maketitle
+
+\bigskip
+
+{\bf The final mark out of 10 (which counts towards your grade) will be calculated as your mark on Q1 plus your mark on Q2 plus your best mark from Q3--5.} I will also award stars: silver for a total mark of 12 or more on any four questions, gold for a total mark of 15 or more on all questions.
+
+\vspace{1cm}
+
+\begin{question}\ (2 marks)\\
+An ideal hyperbolic triangle is a triple of hyperbolic lines $A,B,C$ such that each pair intersect precisely once on the boundary of hyperbolic space. For example, the semicircle $\{z\ :\ |z|=1,\ \OP{Im}(z)>0\}$ and the two vertical half-lines $\{z=-1+ib\ :\ 0<b\in\RR\}$ and $\{z=1+ib\ :\ 0<b\in\RR\}$ at $x=-1$ and $x=1$ form an ideal triangle (the three ``vertices'' are at $-1$, $1$ and $\infty$). What is the area of an ideal triangle? Why are any two ideal triangles are related by an isometry of the hyperbolic plane? {\em [Hint: Try to use 3-transitivity.]}
+\end{question}
+
+\iffalse
+\begin{answer}
+  The ideal triangle has internal angles equal to zero, so its area is $\pi-\alpha-\beta-\gamma=\pi$ (in other words, approximate it by a larger and larger sequence of actual triangles whose angles become smaller and smaller; in the limit the area tends to $\pi$). An ideal triangle is completely determined by its vertices. These vertices lie on $\RR\cup\{\infty\}$. For any three points $z_0,z_1,z_\infty$ in $\CC\cup\{\infty\}$ there is a M\"obius transformation taking them to $0,1,\infty$, namely
+  \[\frac{z-z_0}{z-z_\infty}\frac{z_1-z_\infty}{z_1-z_0}.\]
+  . If the three points are real then this M\"obius transformation is in $PGL(2,\RR)$. If necessary we can switch $z_0$ and $z_1$ to make the determinant of the corresponding $GL(2,\RR)$ matrix positive. So now we have a hyperbolic isometry taking the ideal triangle with vertices at $z_0,z_1,z_\infty$ to the ideal triangle with vertices at $0,1,\infty$.
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (5 marks)\\
+  Working in the disc model of hyperbolic 2-space, let $\gamma(t)=rt$ be the straight-line path starting at the origin when $t=0$ and finishing at radius $r$ at time $1$ and let $\delta(t)=re^{2\pi it}$ be the circular path at radius $r$. A hyperbolic circle of hyperbolic radius $R$ is defined to be the set of points a fixed hyperbolic distance $R$ away from a fixed point.
+  \begin{enumerate}
+  \item[(a)] Find the hyperbolic length of $\gamma$ and the hyperbolic length of $\delta$ as functions of $r$.
+  \item[(b)] Deduce that a hyperbolic circle of hyperbolic radius $R$ centred at the origin is an ordinary Euclidean circle and that the hyperbolic circumference is $2\pi\sinh(R)$.
+  \item[(c)] Show that the area circumscribed by a hyperbolic circle of hyperbolic radius $R$ i $2\pi(\cosh(R)-1)$.
+  \item[(d)] We have now seen that a hyperbolic circle centred at the origin looks (in the disc model) like an ordinary Euclidean circle. What if the centre is taken to be at a different point? What if we look at the circle in the upper half-plane?
+  \end{enumerate}
+\end{question}
+\iffalse
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] The length of $\delta$ is given by the integral $\int_0^1\frac{2|\dot{\delta}|}{1+|\delta|^2}dt$ which is $\int_0^1\frac{2r}{1-r^2}dt=\frac{4\pi r}{1-r^2}$. The length of $\gamma$ is $\int_0^1\frac{2dt}{1-t^2}=2\tanh^{-1}(r)$.
+  \item[(b)] We see that the points at a distance $R$ from the origin are precisely those which lie on a Euclidean circle of radius $r=\tanh(R/2)$. The hyperbolic circumference of this is just the length of $\delta$ when $r=\tanh(R/2)$, which is
+    \[\frac{4\pi\tanh(R/2)}{1-\tanh^2(R/2)}=2\pi(2\sinh(R/2)\cosh(R/2))=2\pi\sinh(R).\]
+  \item[(c)] The area is given by integrating the circumference over the radius:
+    \[\OP{area}=\int_0^R2\pi\sinh(x)dx=2\pi(\cosh(R)-1).\]
+  \item[(d)] If we move a hyperbolic circle centred at $0$ by an isometry $g$ then it maps to a hyperbolic circle centred at $g(0)$. Since the isometries are M\"obius transformations, they take Euclidean circles to Euclidean circles, hence the hyperbolic circles centred at any point look like Euclidean circles. Similarly, since the upper half-plane and the disc are related by a M\"obius transformation, hyperbolic circles in the upper half-plane also look like Euclidean circles.
+  \end{enumerate}
+\end{answer}
+\fi
+
+\newpage
+
+\begin{question}\ (3 marks)\\
+\begin{enumerate}
+\item[(a)]  Working in the upper half-plane model of hyperbolic space, which elements of $PSL(2,\RR)$ send the positive imaginary half-axis to itself?
+
+\item[(b)]  Let $\ell$ be a straight ray in the upper half-plane starting at $0$. For any $z\in\ell$, let $C_z$ be the unique semicircle centred at 0 passing through $z$. Let $z'$ denote the point where $C_z$ intersects the positive imaginary axis. Prove that the hyperbolic length of the segment of $C_z$ between $z$ and $z'$ depends only on the ray $\ell$ and not on the specific choice of a point $z\in\ell$. {\em [Hint: Use part (a).]}
+\end{enumerate}
+\end{question}
+
+\iffalse
+\begin{answer}
+  Such M\"obius transformations must fix or switch $0$ and $\infty$, hence they are of the form $z\mapsto az$ or $z\mapsto -a/z$, $a>0$ real. Different choices of $z$ on the ray $\ell$ are related by multiplication by a positive real number. Let $z$ and $kz$ be two such choices. Then $C_{kz}=kC_z$ and the positive imaginary axis is preserved, so $(kz)'=kz'$ and since $PSL(2,\CC)$ acts by hyperbolic isometries, the hyperbolic length of the segments of $C_z$ between $z,z'$ and $kC_z$ between $kz,kz'$ agree.
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+  Let $ABC$ be a hyperbolic triangle with edge lengths $a,b,c$ opposite angles $\alpha,\beta,\gamma$. Starting from the hyperbolic cosine rule $\cosh(a)=\cosh(b)\cosh(c)-\cos(\alpha)\sinh(b)\sinh(c)$, prove the hyperbolic sine rule:
+  \[\frac{\sinh(a)}{\sin(\alpha)}=\frac{\sinh(b)}{\sin(\beta)}=\frac{\sinh(c)}{\sin(\gamma)}.\]
+  {\em [Hint: You want to show that $\sinh^2(b)\sinh^2(c)\sin^2(\alpha)$ can be written in terms of $a,b,c$ in a completely symmetric way.]}
+\end{question}
+
+\iffalse
+\begin{answer}
+  Using the cosine rule,
+  \[\sinh(b)\sinh(c)\cos(\alpha)=\cosh(b)\cosh(c)-\cosh(a)\]
+  we get
+  \begin{align*}
+    \sinh^2(b)\sinh^2(c)\sin^2(\alpha)&=\sinh^2(b)\sinh^2(c)(1-\cos^2(\alpha))\\
+    &=\sinh^2(b)\sinh^2(c)-(\cosh(b)\cosh(c)-\cosh(a))^2
+  \end{align*}
+  Multiplying this out and using $\cosh^2-\sinh^2=1$ we get
+  \[\sinh^2(b)\sinh^2(c)\sin^2(\alpha)=2\cosh(a)\cosh(b)\cosh(c)-\sinh^2(a)-\sinh^2(b)-\sinh^2(c)-2.\]
+  This is symmetric in $a,b,c$ so the same argument gives
+  \[\sinh^2(b)\sinh^2(c)\sin^2(\alpha)=\sinh^2(c)\sinh^2(a)\sin^2(\beta)=\sinh^2(a)\sinh^2(b)\sin^2(\gamma)\]
+  which yields the sine rule on dividing by $\sinh^2(a)\sinh^2(b)\sinh^2(c)$.
+\end{answer}
+\newpage
+\fi
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+Consider the semicircle $C$ centred at $r\in\RR$ with radius $r$. What is its image under the M\"obius transformation $g(z)=-1/z$? What are the images under $g$ of the points $A=r+ri\in C$ and $B=r(1+e^{i\pi/4})\in C$? Hence or otherwise, find the length of the segment of $C$ connecting $A$ to $B$.
+\end{question}
+
+\iffalse
+\begin{answer}
+  The M\"obius transformation sends $0$ to $\infty$, $2r$ to $-1/2r$ and therefore it sends the semicircle $C$ to a hyperbolic line connecting $-1/2r$ to $\infty$, that is a vertical half-line at $x=-1/2r$. The point $A$ maps to $-\frac{1}{r+ri}=-\frac{r-ri}{2r^2}=\frac{-1}{2r}+\frac{i}{2r}$. The point $B=r\left(1-\frac{1}{\sqrt{2}}+\frac{i}{\sqrt{2}}\right)$ maps to
+  \begin{align*}
+    g(B)&=-\frac{1}{r}\left(\frac{1-\frac{1}{\sqrt{2}}-\frac{i}{\sqrt{2}}}{\left(1-\frac{1}{\sqrt{2}}\right)^2+\frac{1}{2}}\right)\\
+    &=-\frac{1}{r}\left(\frac{1-\frac{1}{\sqrt{2}}-\frac{i}{\sqrt{2}}}{2-\sqrt{2}}\right)\\
+    &=\frac{-1}{2r}+\frac{i}{2r(\sqrt{2}-1)}
+  \end{align*}
+  Therefore the hyperbolic length along $C$ between $A$ and $B$ equals the hyperbolic length along the vertical line between $g(A)$ and $g(B)$, which is the integral
+  \[\int_{1/2r}^{1/2r(\sqrt{2}-1)}\frac{dy}{y}=\ln(1/(2r(\sqrt{2}-1)))-\ln(1/2r)=-\ln(\sqrt{2}-1)\approx 0.88...\]
+\end{answer}
+\newpage
+\fi
+
+\end{document}

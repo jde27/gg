@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+
+\include{qun-sheet-texhead}
+\include{diagrams}
+
+\title{Sheet 7: Hyperbolic geometry}
+\author{J. Evans}
+\date{}
+
+\begin{document}
+\maketitle
+
+\bigskip
+
+{\bf The final mark out of 10 (which counts towards your grade) will be calculated as your mark on Q1 plus your mark on Q2 plus your best mark from Q3--5.} I will also award stars: silver for a total mark of 12 or more on any four questions, gold for a total mark of 15 or more on all questions.
+
+\vspace{1cm}
+
+\begin{question}\ (2 marks)\\
+  Suppose that $a,b,c,d\in\RR$ and $z\in\CC$. Find the imaginary part of $\frac{az+b}{cz+d}$.
+\end{question}
+
+\begin{answer}
+  We have
+  \[\frac{az+b}{cz+d}=\frac{(az+b)(c\bar{z}+d)}{|cz+d|^2}=\frac{ac|z|^2+bd+bc\bar{z}+adz}{|cz+d|^2}.\]
+  The denominator is real and the imaginary part of the numerator $ac|z|^2+bd+bc\bar{z}+adz$ is $(ad-bc)\OP{Im}(z)$, so the imaginary part of $(az+b)/(cz+d)$ is
+  \[\frac{(ad-bc)\OP{Im}(z)}{|cz+d|^2}.\]
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (5 marks)\\
+
+  \begin{enumerate}
+  \item[(a)] Find the subgroup of $PSL(2,\RR)$ consisting of M\"obius transformations which fix the point $i$ in the upper half-plane.
+  \item[(b)] Show that the subgroup you found in (a) is isomorphic to $SO(2)$, the group of rotations in 2-dimensional space.
+  \item[(c)] If $g$ is a M\"obius transformation with fixed point set $P$ and $h$ is another M\"obius transformation, what is the fixed point set of $hgh^{-1}$?
+  \item[(d)] Let $t_b(z)=z+b$ and consider the group $\{t_b\in PSL(2,\RR)\ :\ b\in\RR\}$ be the group of translations of the upper half-plane; these all have precisely one fixed point ($\infty$). Conjugate $t_b$ by $h(z)=-1/z$ to get a subgroup of isometries of the hyperbolic upper half-plane which fix $0$. Show that, as $b$ varies, the orbit (under the action of this subgroup) of a point $ri$ on the imaginary axis is a Euclidean circle centred at $ri/2$ with radius $r/2$. {\em [Such a circle is called a horocycle.]}
+  \end{enumerate}
+\end{question}
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] Suppose $i=(ai+b)/(ci+d)$. Then $ai+b=-c+di$ so (since $a,b,c,d$ are real) $a=d$ and $c=-b$. Moreover, as the original M\"obius transformation is in $PSL(2,\RR)$, we can take $ad-bc=1$, which becomes $a^2+b^2=1$, so the most general element of $PSL(2,\RR)$ fixing $i$ is the M\"obius transformation $(z\cos\theta-\sin\theta)/(z\sin\theta+\cos\theta)$.
+  \item[(b)] There is an obvious map $F\colon SO(2)\to G$ where $G$ is the group of M\"obius transformations in (a), namely $F\left(\begin{array}{cc}\cos\theta & -\sin\theta\\\sin\theta & \cos\theta\end{array}\right)=\frac{z\cos\theta-\sin\theta}{z\sin\theta+\cos\theta}$. We have seen that this is a homomorphism (it's just the restriction of the usual map $SL(2,\RR)\to PSL(2,\RR)$ to the subgroup $SO(2)$). When is a matrix in the kernel of this map? When $\frac{z\cos\theta-\sin\theta}{z\sin\theta+\cos\theta}=z$ for all $z$, which means $z\cos\theta-\sin\theta=z^2\sin\theta+z\cos\theta$, or $(z^2+1)\sin\theta=0$, which implies $\sin\theta=0$. Therefore the kernel consists of the identity and minus the identity, so the image of the homomorphism is isomorphic to $SO(2)/\{\pm 1\}$. But this is again isomorphic to $SO(2)$ as there is a isomorphism $SO(2)/\{\pm 1\}\to SO(2)$ given by
+    \[G\left[\left(\begin{array}{cc}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{array}\right)\right]=\left(\begin{array}{cc}\cos(2\theta) & -\sin(2\theta)\\ \sin(2\theta) & \cos(2\theta)\end{array}\right).\]
+More directly, one could use the map
+\[H\left[\left(\begin{array}{cc}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{array}\right)\right]=\frac{z\cos(\theta/2)-\sin(\theta/2)}{z\sin(\theta/2)+\cos(\theta/2)}.\]
+This is still a homomorphism (same proof as for $F$) and it's clearly surjective, but it's now injective as well: the kernel consists of those matrices $\left(\begin{array}{cc}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{array}\right)$ for which $\cos(\theta/2)=\pm 1$, i.e. $\theta\in 2\pi\ZZ$, but this is just the identity matrix.
+  \item[(c)] The fixed point set of $hgh^{-1}$ is $h(P)$: if $x=h(y)\in h(P)$ then $hgh^{-1}h(y)=hg(y)=h(y)$ as $y\in P$ and conversely.
+  \item[(d)] When we conjugate by $h$, we get a subgroup of M\"obius transformations of the form $ht_bh^{-1}(z)=-1/(-1/z+b)=z/(1-bz)$. If we apply this to $ri$ then we get $ri/(1-bri)=ri(1+bri)/(1+b^2r^2)=\frac{-br^2+ri}{1+b^2r^2}$. The real part is $x=-br^2/(1+b^2r^2)$ and the imaginary part is $y=r/(1+b^2r^2)$. Therefore $x^2+y^2=\frac{b^2r^2+1}{(1+b^2r^2)^2}r^2=ry$, which gives $x^2+(y-r/2)^2=r^2/4$, which is the equation of a circle centred at $r/2$ with radius $r/2$.
+  \end{enumerate}
+\end{answer}
+
+\newpage
+
+\begin{question}\ (3 marks)\\
+  Consider the upper half-plane model of hyperbolic 2-space. Let $C_1$, $C_2$ and $C_3$ be three hyperbolic lines. We say that $C_3$ is a common perpendicular if $C_3$ intersects $C_1$ and $C_2$ orthogonally at points $Q$ and $R$.
+  \begin{enumerate}
+  \item[(a)] Assume there exists a common perpendicular for $C_1$ and $C_2$. By considering the hyperbolic triangle $PQR$ that would be formed, prove that $C_1$ and $C_2$ cannot intersect at a third point $P$ in the upper half-plane.
+  \item[(b)] When $C_1$ and $C_2$ are ultraparallel show that there is always a common perpendicular and that this is unique.
+  \end{enumerate}
+\end{question}
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] The triangle $PQR$ would have internal angles $\pi/2,\pi/2,\epsilon$ for some $\epsilon>0$ and these sum to $\pi+\epsilon>\pi$ which contradicts the Gauss-Bonnet theorem.
+  \item[(b)] WLOG take $C_1$ to be the imaginary axis. Then $C_3$ must be a semicircle centred at $0$. There is a 1-parameter family of such semicircles, an interval of which intersect $C_2$. At one end of this interval, the angle of intersection between $C_3$ and $C_2$ is zero (when they are first tangent), then it starts to increase, until it reaches $\pi$ (when they are last tangent). Since this angle depends continuously on the radius of $C_3$, it takes on every value between $0$ and $\pi$ (by the intermediate value theorem). Therefore there exists such a $C_3$. If there were two, they (along with $C_1$ and $C_2$) would form a hyperbolic quadrilateral with all internal angles equal to $\pi/2$, which would contradict Gauss-Bonnet.
+  \end{enumerate}
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+  Consider the upper half-plane model of hyperbolic space. Let $I$ denote the imaginary axis, so that $r_I(z)=-\bar{z}$ defines the reflection in $I$. Let $C$ denote the upper unit semicircle $C=\{z\in\CC\ :\ |z|=1,\ \OP{Im}(z)>0\}$. By conjugating $r_I$ by an appropriate M\"obius transformation, find the formula for the reflection $r_C$ in the hyperbolic line $C$. Now let $D$ be the upper semicircle centred at $a\in\RR$ with radius $r$. By conjugating $r_C$ by an appropriate M\"obius transformation, deduce that the reflection $r_D$ in the hyperbolic line $D$ is given by $r_D(z)=a+\frac{r^2}{\bar{z}-a}$.
+\end{question}
+
+\begin{answer}
+  The M\"obius transformation $g(z)=(z-1)/(z+1)$ sends $0$ to $-1$, $\infty$ to $1$ and $i$ to $i$, so it sends $I$ to $C$. Therefore $r_C=g\circ r_I\circ g^{-1}$ (because this is the unique M\"obius transformation other than the identity which fixes $C$ pointwise, i.e. the unique nontrivial element in the stabiliser of $C$ under the action of isometries on hyperbolic lines). We have $g^{-1}(z)=(z+1)(1-z)$, so computing, we get
+  \[r_C(z)=g(r_I(g^{-1}(z)))=\frac{-\frac{\bar{z}-1}{\bar{z}+1}+1}{\frac{\bar{z}-1}{\bar{z}+1}+1}=\frac{1}{\bar{z}}.\]
+  Now the M\"obius transformation $h(z)=\frac{z-a}{r}$ sends $a$ to $0$ and $D$ to $C$, so $r_D=h^{-1}\circ r_C\circ h$. We have $h^{-1}(z)=rz+a$, so
+  \[r_D(z)=h^{-1}(r_C(h(z)))=a+r^2/(\bar{z}-a)\]
+  as required.
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+  Find the area of a convex hyperbolic $n$-gon with interior angles $\alpha_1,\ldots,\alpha_n$. Prove that for every $0<\alpha<\left(1-\frac{2}{n}\right)\pi$ there is a regular convex hyperbolic $n$-gon with interior angles equal to $\alpha$. Sketch this $n$-gon in both the disc and upper-half plane models. (The disc model is probably easier!)
+\end{question}
+
+\begin{answer}
+  By subdividing the polygon into $n-2$ triangles, we apply the Gauss-Bonnet theorem to each triangle and deduce that
+  \[\OP{area}(P)=(n-2)\pi-\sum\alpha_i.\]
+  Let $\mu$ be an $n$th root of unity and consider the points $r\mu^k$, $k=0,1,\ldots,n-1$. When $r<1$, these form the vertices of a regular convex hyperbolic $n$-gon $P(r)$ in the disc model. As $r\to 1$, the interior angles go to zero and the area goes to $(n-2)\pi$. As $r\to 0$ the area goes to zero, so $\alpha=(\OP{area}(P(r))-(n-2)\pi)/n\to \left(1-\frac{2}{n}\right)\pi$. As the area and the angles change continuously in $r$, $\alpha$ takes every possible value in between $0$ and $\left(1-\frac{2}{n}\right)\pi$ (by the intermediate value theorem).
+\end{answer}
+\newpage
+
+\end{document}

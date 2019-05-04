@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+
+\include{qun-sheet-texhead}
+\include{diagrams}
+
+\title{Sheet 1: Polytopes and group actions}
+\author{J. Evans}
+\date{}
+
+\begin{document}
+\maketitle
+
+\bigskip
+
+I will mark all questions and get a total out of 16. Stars will be awarded: silver for marks of 12 or more, gold for marks of 15 or more. The final mark (which counts towards your grade) will be calculated as Q1 plus Q2 plus your best solution from Q3--5.
+
+\vspace{1cm}
+
+\begin{question}\ (2 marks)\\
+Let $G$ be a group acting on a set $X$; let $x\in X$ and $g\in G$. Show $\OP{Stab}(gx)=g\OP{Stab}(x)g^{-1}$.
+\end{question}
+
+\begin{answer}
+If $h\in\OP{Stab}(x)$ then $ghg^{-1}(gx)=ghx=gx$ so $ghg^{-1}\in\OP{Stab}(gx)$. Conversely, if $h\in\OP{Stab}(gx)$ then let $j=g^{-1}hg$. We have $j(x)=g^{-1}h(gx)=g^{-1}gx=x$ so $j\in\OP{Stab}(x)$. Therefore $h=gjg^{-1}$.
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (5 marks)\\
+  In each case, find the size of the group using the orbit-stabiliser theorem applied to a suitable action.
+  \begin{enumerate}
+  \item[(a)] $S_n$, the group of permutations of $n$ objects.
+  \item[(b)] The symmetry groups of the Platonic solids, using their actions on edges (rather than faces or vertices).
+  \item[(c)] The symmetry group of a 4-dimensional cube (how many facets does it have and what shape are they?).
+  \item[(d)] The symmetry group of the 120-cell, the regular convex 4-dimensional polytope with Sch\"afli symbol $\{5,3,3\}$ (120 dodecahedral facets).
+  \item[(e)] The symmetry group of the snub cube and one more archimedean solid (look them up on Wikipedia: there are 13 - pick your favourite).
+  \end{enumerate}
+\end{question}
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] The stabiliser of $n\in\{1,\ldots,n\}$ is $S_{n-1}\subset S_n$, and the $S_n$-action on $\{1,\ldots,n\}$ is transitive, so the orbit-stabiliser theorem implies that $|S_n|=n|S_{n-1}|$. Clearly $|S_1|=1$. By induction, we get $|S_n|=n!$.
+  \item[(b)] The action on edges is transitive. In each case, the stabiliser of an edge has size four: one can reflect in the hyperplane of symmetry passing through that edge, one can reflect in the hyperplane of symmetry orthogonal to that edge, these two reflections span a Klein 4-group of edge-stabilisers. The number of symmetries is therefore the number of edges times four, giving:
+
+    \begin{tabular}{c|cc}
+      polyhedron & edges & symmetries\\
+      \hline
+      T & 6 & 24\\
+      O & 12 & 48\\
+      I & 30 & 120\\
+      C & 12 & 48\\
+      D & 30 & 120
+    \end{tabular}
+    
+  \item[(c)] The 4-cube has eight cubical facets, therefore (considering the action on facets) its symmetry group has size $8\times 48=384$.
+  \item[(d)] The 120-cell has 120 dodecahedral facets, therefore (considering the action on facets) its symmetry group has size $120^2=14400$.
+  \item[(e)] The archimedean solids are:
+
+    \begin{tabular}{c|c}
+      polyhedron & symmetries\\
+      \hline
+      truncated tetrahedron & 24\\
+      cuboctahedron & 48\\
+      truncated cube & 48\\
+      truncated octahedron & 48\\
+      rhombicuboctahedron & 48\\
+      truncated cuboctahedron & 48\\
+      snub cube & 24\\
+      icosidodecahedron & 120\\
+      truncated dodecahedron & 120\\
+      truncated icosahedron & 120\\
+      rhombicosidodecahedron & 120\\
+      truncated icosidodecahedron & 120\\
+      snub dodecahedron & 60
+    \end{tabular}
+    
+    You have to be careful with the snub cube and snub dodecahedron: though there are 6 square faces of a snub cube, none of the reflective symmetries of the square extend to symmetries of the snub cube. To see this, observe that there are edges where squares and triangles meet and the hyperplane through such an edge is not a hyperplane of reflective symmetry, even though it may intersect a square face in a line of reflective symmetry. Similarly for the snub dodecahedron.
+  \end{enumerate}
+\end{answer}
+
+\newpage
+
+\begin{question}\ (3 marks)\\
+  The alternating group $A_4$ contains (in addition to the identity) 3 elements of order 2 (conjugate to $(12)(34)$) and 8 elements of order 3 (conjugate to $(123)$). Geometrically, how do these act by rotations on the tetrahedron?
+\end{question}
+
+\begin{answer}
+The even order 2 elements are rotations by $\pi$ radians in an axis through the midpoints of opposite edges. The order 3 elements are rotations by $2\pi/3$ radians in an axis through a vertex and the midpoint of the opposite face.
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)
+  \begin{enumerate}
+  \item[(a)] What is the convex hull of the eight points $(\pm 1,\pm 1,\pm 1)$ in $\RR^3$? What is the convex hull of the four points $\{(1,1,1),(-1,-1,1),(-1,1,-1),(1,-1,-1)\}\subset\RR^3$?
+  \item[(b)] Show that the convex hull of a finite set of points is convex.
+  \item[(c)] What is the convex hull of $\{-1,0,1\}\subset\RR$? Let $X\subset\RR^n$ be a finite set of points, let $x\in X$ and let $Y=X\setminus\{x\}$. Suppose that $x\in\OP{Conv}(Y)$. Show that $\OP{Conv}(Y)=\OP{Conv}(X)$. Deduce that a convex polytope is the convex hull of its vertices.
+  \end{enumerate}
+\end{question}
+
+\begin{answer}
+  \begin{enumerate}
+  \item[(a)] The convex hulls are: a cube and a tetrahedron (inscribed in the cube as a subset of its vertices).
+  \item[(b)] Suppose $y,z\in\OP{Conv}(X)$. Then $y=\sum s_xx$, $z=\sum t_xx$ where $s_x,t_x\geq 0$ and $\sum s_x=\sum t_x=1$. Consider the line segment joining $y$ and $z$, that is $ry+(1-r)z$ for $r\in[0,1]$. We have $ry+(1-r)z=\sum(rs_x+(1-r)t_x)x$. The coefficient $rs_x+(1-r)t_x$ is a sum of positive terms since $0\leq r\leq 1$. Moreover, we have
+    \[\sum (rs_x+(1-r)t_x)=r\sum s_x+(1-r)\sum t_x=r+1-r=1.\]
+    Therefore the straight line segment lives in $\OP{Conv}(X)$ as desired.
+  \item[(c)] The convex hull of $\{-1,0,1\}$ is $[-1,1]$; the point 0 has no effect on the convex hull because it's not a vertex. If $x=\sum_{y\in Y} t_yy$ and if $z=\sum_{x\in X} s_xx$ is some element of $\OP{Conv}(X)$, we want to find an expression for $z$ as a sum over elements of $Y$. We have
+    \[z=s_xx+\sum_{y\in Y}s_yy=\sum_{y\in Y}(s_xt_y+s_y)y\]
+    and $s_xt_y+s_y\geq 0$ since all terms are positive. Moreover, $\sum_{y\in Y}(s_xt_y+s_y)=\sum_{y\in Y}s_y+s_x\sum_{y\in Y}t_y=\sum s_y=1$ since $\sum_{y\in Y}t_y=1$. Therefore you can drop all non-vertex points without changing the convex hull.
+  \end{enumerate}
+\end{answer}
+\newpage
+
+\vspace{1cm}
+
+\begin{question}\ (3 marks)\\
+  By considering the facets and the vertex figure, prove that there are at most six regular convex polytopes in four dimensions. You may use the fact that the dihedral angles (in radians) for the Platonic solids are:
+
+  \begin{tabular}{p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}}
+    T & O & I & C & D\\
+    $\cos^{-1}(1/3)$  & $\pi-\cos^{-1}(1/3)$  & $\pi-\cos^{-1}(\sqrt{5}/3)$  & $\pi/2$  & $\pi-\tan^{-1}(2)$
+  \end{tabular}
+  
+  and that the dihedral angles around a ridge must sum to less than $2\pi$ radians.
+\end{question}
+
+\begin{answer}
+Suppose the Schl\"afli symbol is $\{p,q,r\}$. Then $\{p,q\}$ is the Schl\"afli symbol for the facet, which is one of: $T=\{3,3\}$, $O=\{3,4\}$, $I=\{3,5\}$, $C=\{4,3\}$, $D=\{5,3\}$. In each case we need $r<6,4,3,4,4$ in order for the dihedral angles around a ridge to sum to $<2\pi$. We need $r>2$, so can discount $I$ immediately. Moreover, the vertex figure is a regular convex polyhedron, so $\{q,r\}$ is also one of $T,O,I,C,D$. This leaves the following possibilities: $\{3,3,3\}$, $\{3,3,4\}$, $\{3,3,5\}$, $\{3,4,3\}$, $\{4,3,3\}$, $\{5,3,3\}$ which are the Schl\"afli symbols of the six regular convex polytopes in four dimensions.
+\end{answer}
+\newpage
+
+
+\end{document}
