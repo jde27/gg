@@ -1,0 +1,115 @@
+\usepackage{amsmath,amscd,amssymb,amsthm,enumerate,verbatim,palatino,parskip,graphicx}
+\usepackage{tikz}
+
+%\titleformat{\section}
+%  {\newpage\rmfamily\Large\bfseries}{}{0em}{Lecture \thesection:~}
+%\titlespacing*{\section}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{amsbsy,anysize}
+\marginsize{2.3cm}{2.3cm}{2cm}{2.4cm}
+
+\renewcommand\vec[1]{\ensuremath\boldsymbol{#1}}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newcommand{\dd}[2]{\frac{d #1}{d #2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\m}{\mathcal}
+\newcommand{\BB}{\mathbf}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\PP}{\mathbf{P}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\OP}{\operatorname}
+\newcommand{\op}{\operatorname}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\End}{\OP{End}}
+\newcommand{\ad}{\OP{ad}}
+\newcommand{\Ad}{\OP{Ad}}
+\newcommand{\Sym}{\OP{Sym}}
+\renewcommand{\sl}{\mathfrak{sl}}
+\renewcommand{\gg}{\mathfrak{g}}
+\newcommand{\hh}{\mathfrak{h}}
+\newcommand{\gl}{\mathfrak{gl}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\kk}{\mathbf{k}}
+\newcommand{\vrow}[2]{\left(\begin{array}{cc}#1 & #2\end{array}\right)}
+\newcommand{\vcol}[2]{\left(\begin{array}{c}#1\\ #2\end{array}\right)}
+\newcommand{\vrot}[3]{\left(\begin{array}{ccc}#1 & #2 & #3\end{array}\right)}
+\newcommand{\vcot}[3]{\left(\begin{array}{c}#1\\ #2\\ #3\end{array}\right)}
+\newcommand{\matr}[4]{\left(\begin{array}{cc}#1 & #2\\ #3 & #4\end{array}\right)}
+\newcommand{\Diag}[3]{\left(\begin{array}{ccc}#1 & 0 & 0\\0 & #2 & 0\\0 & 0 & #3\end{array}\right)}
+\newcommand{\mats}[4]{\left(\begin{array}{ccc}#1 & \cdots & #2\\ \vdots & \ddots & \vdots \\ #3 & \cdots & #4\end{array}\right)}
+\newcommand{\matt}[9]{\left(\begin{array}{ccc}#1 & #2 & #3\\#4 & #5 & #6\\#7 & #8 & #9\end{array}\right)}
+\newcommand{\MAT}[4]{\left(\begin{array}{ccc}#1 & \cdots & #2\\ \vdots & \ddots & \vdots\\ #3 & \cdots & #4\end{array}\right)}
+\newcommand{\MATR}[9]{\left(\begin{array}{cccc}#1 & #2 & \cdots & #3\\ #4 & #5 &  & #6\\ \vdots & &\ddots &\vdots\\ #7 & #8 & \cdots & #9\\\end{array}\right)}
+
+\setcounter{secnumdepth}{3}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{thmalpha}{Theorem}
+\newtheorem{lma}[thm]{Lemma}
+\newtheorem{lmaclub}[thm]{$\clubsuit$ Lemma}
+\newtheorem{prp}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{exm}[thm]{Example}
+\newtheorem{exmclub}[thm]{$\clubsuit$ Example}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem*{clm}{Claim}
+
+\newtheoremstyle{check}% name of the style to be used
+  {}% measure of space to leave above the theorem. E.g.: 3pt
+  {}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {}% measure of space to indent
+  {\bf}% name of head font
+  {!}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {}% manually specify head
+\theoremstyle{check}
+\newtheorem*{chk}{Check}
+
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+
+\setcounter{tocdepth}{1}
+
+\newtheoremstyle{TheoremNum}
+    {\topsep}{\topsep}              %%% space between body and thm
+    {\itshape}                      %%% Thm body font
+    {}                              %%% Indent amount (empty = no indent)
+    {\bfseries}                     %%% Thm head font
+    {.}                             %%% Punctuation after thm head
+    { }                             %%% Space after thm head
+    {\thmname{#1}\thmnote{ \bfseries #3}}%%% Thm head spec
+\theoremstyle{TheoremNum}
+
+\begingroup 
+\makeatletter 
+\@for\theoremstyle:=definition,remark,plain,check,TheoremNum\do{% 
+\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{% 
+\addtolength\thm@preskip\parskip 
+}% 
+} 
+\endgroup 
+
+\renewcommand*{\thethmalpha}{\Alph{thmalpha}}
+
+% Next bit redefines the proof environment so it's more like Arnold's book ``Mathematical methods of classical mechanics''.
+
+\makeatletter \renewenvironment{proof}[1][\proofname]
+{\par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\begin{list}{}{\rightmargin=2em\leftmargin=2em}\item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces\footnotesize}{\popQED\end{list}\@endpefalse}
+\makeatother
